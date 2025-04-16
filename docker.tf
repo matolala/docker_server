@@ -7,7 +7,7 @@ provider "aws" {
 # Create a remote backend for your terraform 
 terraform {
   backend "s3" {
-    bucket = "martins"
+    bucket = "martins-docker-tfstate"
     dynamodb_table = "app-state"
     key    = "LockID"
     region = "us-east-2"
