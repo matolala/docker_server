@@ -1,7 +1,7 @@
 # configured aws provider with proper credentials
 provider "aws" {
-  region = "us-east-1"
-  profile= "yusuf"
+  region = "us-east-2"
+  profile= "martins"
 }
 
 # Create a remote backend for your terraform 
@@ -10,7 +10,7 @@ terraform {
     bucket = "austinobioma-docker-tfstate"
     dynamodb_table = "app-state"
     key    = "LockID"
-    region = "us-east-1"
+    region = "us-east-2"
     profile = "austinobioma-realcloud"
   }
 }
