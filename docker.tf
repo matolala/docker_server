@@ -54,6 +54,15 @@ resource "aws_security_group" "ec2_security_group" {
     cidr_blocks      = ["0.0.0.0/0"]
   }
 
+ # allow access on port 8080
+  ingress {
+    description      = "http proxy access"
+    from_port        = 8085
+    to_port          = 8085
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
   # allow access on port 22
   ingress {
     description      = "ssh access"
@@ -75,6 +84,42 @@ resource "aws_security_group" "ec2_security_group" {
     description      = "http nginx access"
     from_port        = 9090
     to_port          = 9090
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+ # allow access on port 8080
+  ingress {
+    description      = "http proxy access"
+    from_port        = 9003
+    to_port          = 9003
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+ # allow access on port 8080
+  ingress {
+    description      = "http proxy access"
+    from_port        = 3000
+    to_port          = 3000
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+ # allow access on port 8080
+  ingress {
+    description      = "http proxy access"
+    from_port        = 8090
+    to_port          = 8090
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+ # allow access on port 8080
+  ingress {
+    description      = "http proxy access"
+    from_port        = 8070
+    to_port          = 8070
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
@@ -125,6 +170,6 @@ resource "aws_instance" "ec2_instance1" {
 }
 
 # print the url of the docker server
-output "website_url" {
-  value     = join ("", ["http://", aws_instance.ec2_instance1.public_dns, ":", "8080"])
+output "docker_ipaddress" {
+  value     = join ("", ["http://", aws_instance.ec2_instance1.public_ip])
 }
