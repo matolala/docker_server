@@ -1,6 +1,6 @@
 # configured aws provider with proper credentials
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-2"
   profile= "martins"
 }
 
@@ -10,7 +10,7 @@ terraform {
     bucket = "martins-docker-tfstate"
     dynamodb_table = "app-state"
     key    = "LockID"
-    region = "us-east-1"
+    region = "us-east-2"
     profile = "martins"
   }
 }
